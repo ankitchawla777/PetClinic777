@@ -14,10 +14,6 @@ namespace Pet_Clinic.Models
         [Key]
         public int dId { get; set; }
     }
-    public class DoctorDBContext : DbContext
-    {
-        public DbSet<Doctor> Doctors { get; set; }
-    }
 
     public class Customer
     {
@@ -26,21 +22,12 @@ namespace Pet_Clinic.Models
         public int cId { get; set; }
         public String cAddress { get; set; }
     }
-    public class CustomerDBContext : DbContext
-    {
-        public DbSet<Customer> Customers { get; set; }
-    }
+   
 
     public class Room
     {
         [Key]
         public int rNo { get; set; }
-    }
-    public class RoomDBContext : DbContext
-    {
-        public DbSet<Customer> Customers { get; set; }
-
-        public System.Data.Entity.DbSet<Pet_Clinic.Models.Room> Rooms { get; set; }
     }
     public class Appointments
     {
@@ -49,14 +36,29 @@ namespace Pet_Clinic.Models
         public int dId { get; set; }
         public int cId { get; set; }
         public int rNo { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime aDate { get; set; }
 
     }
-    public class AppointmentDBContext : DbContext
+    public class PetDBContext : DbContext
     {
+        public PetDBContext(): base("PetDbConnection")
+        {}
+        public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Appointments> Appointments { get; set; }
+        public DbSet<Room> Rooms { get; set; }
 
-        public System.Data.Entity.DbSet<Pet_Clinic.Models.Appointments> Appointments { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Doctor>().ToTable("Doctors");
+            modelBuilder.Entity<Customer>().ToTable("customers");
+            modelBuilder.Entity<Room>().ToTable("Rooms");
+             modelBuilder.Entity<Appointments>().ToTable("Appointment");
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 
 }

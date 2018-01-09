@@ -156,18 +156,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Appointment\Configuration.cs" />
-    <Compile Include="Migrations\Customers\201801061621454_InitialCreate.cs" />
-    <Compile Include="Migrations\Customers\201801061621454_InitialCreate.Designer.cs">
-      <DependentUpon>201801061621454_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Customers\Configuration.cs" />
-    <Compile Include="Migrations\Doctors\201801061605393_InitialCreate.cs" />
-    <Compile Include="Migrations\Doctors\201801061605393_InitialCreate.Designer.cs">
-      <DependentUpon>201801061605393_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Doctors\Configuration.cs" />
-    <Compile Include="Migrations\Rooms\Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\pet_clinic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -245,14 +234,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\Customers\201801061621454_InitialCreate.resx">
-      <DependentUpon>201801061621454_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Doctors\201801061605393_InitialCreate.resx">
-      <DependentUpon>201801061605393_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

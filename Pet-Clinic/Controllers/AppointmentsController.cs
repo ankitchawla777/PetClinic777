@@ -12,11 +12,12 @@ namespace Pet_Clinic.Controllers
 {
     public class AppointmentsController : Controller
     {
-        private AppointmentDBContext db = new AppointmentDBContext();
+        private PetDBContext db = new PetDBContext();
 
         // GET: Appointments
         public ActionResult Index()
         {
+            
             return View(db.Appointments.ToList());
         }
 
@@ -38,6 +39,10 @@ namespace Pet_Clinic.Controllers
         // GET: Appointments/Create
         public ActionResult Create()
         {
+
+            ViewBag.Doctors = new SelectList(db.Doctors.ToList(), "dId", "dName");
+            ViewBag.Customers = new SelectList(db.Customers.ToList(), "cId", "cName");
+            ViewBag.Rooms = new SelectList(db.Rooms.ToList(), "rNo", "rNo");
             return View();
         }
 
@@ -50,6 +55,7 @@ namespace Pet_Clinic.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Appointments.Add(appointments);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -57,6 +63,7 @@ namespace Pet_Clinic.Controllers
 
             return View(appointments);
         }
+
         // GET: Appointments/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -65,6 +72,9 @@ namespace Pet_Clinic.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Appointments appointments = db.Appointments.Find(id);
+            ViewBag.Doctors = new SelectList(db.Doctors.ToList(), "dId", "dName");
+            ViewBag.Customers = new SelectList(db.Customers.ToList(), "cId", "cName");
+            ViewBag.Rooms = new SelectList(db.Rooms.ToList(), "rNo", "rNo");
             if (appointments == null)
             {
                 return HttpNotFound();

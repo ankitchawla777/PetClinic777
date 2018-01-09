@@ -12,7 +12,7 @@ namespace Pet_Clinic.Controllers
 {
     public class RoomsController : Controller
     {
-        private RoomDBContext db = new RoomDBContext();
+        private PetDBContext db = new PetDBContext();
 
         // GET: Rooms
         public ActionResult Index()
