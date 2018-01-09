@@ -72,6 +72,20 @@ namespace Pet_Clinic.Controllers
             }
             return View(doctor);
         }
+        public ActionResult View_Appointments(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            List<Appointments> appointments = db.Appointments.Where(a => a.dId == id).ToList();
+            if (appointments == null)
+            {
+                return HttpNotFound();
+            }
+            return View(appointments);
+        }
+
 
         // POST: Doctors/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

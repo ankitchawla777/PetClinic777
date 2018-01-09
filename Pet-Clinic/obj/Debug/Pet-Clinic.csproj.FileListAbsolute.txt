@@ -92,3 +92,4 @@ C:\Users\ankit.chawla\source\repos\Pet-Clinic\PetClinic777\Pet-Clinic\bin\Micros
 C:\Users\ankit.chawla\source\repos\Pet-Clinic\PetClinic777\Pet-Clinic\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\ankit.chawla\source\repos\Pet-Clinic\PetClinic777\Pet-Clinic\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\ankit.chawla\source\repos\Pet-Clinic\PetClinic777\Pet-Clinic\bin\Microsoft.AI.Web.xml
+C:\Users\ankit.chawla\source\repos\Pet-Clinic\PetClinic777\Pet-Clinic\obj\Debug\Pet-Clinic.csprojResolveAssemblyReference.cache
